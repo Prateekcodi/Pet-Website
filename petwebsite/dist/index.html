@@ -1,67 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnimalUnity</title>
+  <title>FurFix</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- <link rel="stylesheet" href="style2.css"> -->
   <link rel="stylesheet" href="./style.css">
-</head>
 
+</head>
+<script>
+  const allLinks = document.querySelectorAll("a:link");
+allLinks.forEach(function (link) { link.addEventListener("click", function (e) {
+e.preventDefault();
+const href = link.getAttribute("href");
+// Scroll back to top if (href === "#")
+window.scrollTo({
+top: 0,
+behavior: "smooth",
+});
+if (href !== "#" && href.startsWith("#")) {
+  const sectionEl = document.querySelector(href); sectionEl.scrollintoView({behavior: "smooth" });
+}
+  });
+});
+</script>
 <!--body-->
-<body >
+<body class="scroll-smooth">
   <!--header-maker-->
 <header class="flex-col"></header>
 <!--nav-bar-->
-<nav class="h-20 flex justify-between items-center pl-6 pr-6 bg-slate-900 ">
-  <div class="logo flex items-center">
-    <div class="animalunity-logo text-white text-3xl font-bold ml-1 animate-logo">FURFIX</div>
-    <style>
-      @keyframes logoAnimation {
-        0% {
-          transform: scale(1);
-          opacity: 0.5;
-        }
-        50% {
-          transform: scale(1.2);
-          opacity: 1;
-          color: #facc15; 
-        }
-        100% {
-          transform: scale(1);
-          opacity: 0.5;
-        }
-      }
 
-      .animate-logo {
-        animation: logoAnimation 3s infinite;
-      }
-    </style>
-  </div>
-  <div class="middle-one flex gap-9 items-center animate-slide-in uppercase text-white ">
-    <a href="#" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">Home</a>
-    |
-    <a href="#Consultancy" class="hover:bg-[#facc15 ]transition-transform duration-300 hover:scale-105">Consultancy</a>
-    |
-    <a href="#Testimonial" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">Testimonial</a>
-    |
-    <a href="#Heroes" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">Heroes</a>
-    |
-    <a href="#FAQ's" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">FAQ's</a>
-  </div>
-  <div class="sign-in flex gap-4">
-    <a href="sign.html">
-      <button class="text-white font-bold py-2 px-6 rounded-full bg-gradient-to-r from-yellow-400 to-red-600 hover:from-yellow-500 hover:to-yellow-500 shadow-lg transform transition-transform duration-300 hover:scale-105 ">
-        Sign In
-      </button>
-    </a>
-    <a href="./sign_up.html">
-      <button class="text-white font-bold py-2 px-6 rounded-full bg-gray-800 hover:bg-gray-700 shadow-lg transform transition-transform duration-300">
-      Sign Up
-      </button>
-    </a>
-  </div>
+  <nav class="h-20 flex justify-between items-center pl-6 pr-6 bg-slate-900 sticky top-0 z-50">
+    <div class="logo flex items-center">
+      <a href="#">
+
+        <div class="animalunity-logo text-white text-3xl font-bold ml-1 animate-logo">FURFIX</div>
+      </a>
+      <style>
+        @keyframes logoAnimation {
+          0% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 1;
+            color: #facc15; 
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+        }
+
+        .animate-logo {
+          animation: logoAnimation 3s infinite;
+        }
+      </style>
+    </div>
+    <div class="middle-one flex gap-9 items-center animate-slide-in uppercase text-white ">
+      <a href="#" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105 scroll-smooth">Home</a>
+      |
+      <a href="#Consultancy" class="hover:bg-[#facc15 ]transition-transform duration-300 hover:scale-105 scroll-smooth">Consultancy</a>
+      |
+      <a href="#Testimonial" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">Testimonial</a>
+      |
+      <a href="#Heroes" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">Heroes</a>
+      |
+      <a href="#FAQ's" class="text-red-50 hover:bg-[#facc15 ] transition-transform duration-300 hover:scale-105">FAQ's</a>
+    </div>
+    <div class="sign-in flex gap-4">
+      <a href="sign.html">
+        <button class="text-white font-bold py-2 px-6 rounded-full bg-gradient-to-r from-yellow-400 to-red-600 hover:from-yellow-500 hover:to-yellow-500 shadow-lg transform transition-transform duration-300 hover:scale-105  ">
+          Sign In
+        </button>
+      </a>
+      <a href="./sign_up.html">
+        <button class="text-white font-bold py-2 px-6 rounded-full bg-gray-800 hover:bg-gray-700 shadow-lg transform transition-transform duration-300">
+        Sign Up
+        </button>
+      </a>
+    </div>
+
 </nav>
     <!-- //page number 1 -->
 <section>
@@ -72,9 +93,9 @@
     <div class="flex justify-center items-center h-screen relative z-10">
       <div class="text-center leading-7 animate-fade-in">
         <!-- Text remains at full brightness (100%) -->
-        <h1 class="text-8xl text-white leading-tight font-bold">
+        <h1 class="text-8xl text-white leading-tight font-bold ">
           <span id="typed-text"></span>
-          <span id="cursor" class="text-white">|</span>
+          <span id="cursor" class="text-white inline-flex animate-bounce ">🐕</d>
         </h1>
         <p class="text-3xl text-white leading-relaxed animate-slide-in">Save a life that has no language !</p>
         <button class="text-white font-bold py-2 px-6 rounded bg-gradient-to-t from-yellow-400 to-red-600 shadow-2xl active:shadow-none mt-4 animate-pulse hover:shadow-md hover:animate-none hover:text-black">
@@ -130,31 +151,37 @@
 </section>
 
 <!-- //page number 2 -->
-<section class="bg-cover flex flex-wrap justify-center items-center py-12 bg-center bg-no-repeat relative">
-  <div class="w-full md:w-1/2 lg:w-1/3 p-4 transform transition-transform duration-300 hover:scale-105 hover:z-10">
-    <a href="main.html">
-      <img src="./adoptdog.jpg" alt="Description Image 1" class="w-full h-auto rounded-lg shadow-lg">
-      <h2 class="text-3xl font-bold mt-4 mb-2 text-black">Be a Hero: Donate to Save Our Furry Friends</h2>
-      <p class="text-lg leading-relaxed text-gray-800">
-        Open your heart and home! By adopting a pet or donating, you transform lives. Join us in giving love and second chances to furry friends waiting for their forever families.</p>
-    </a>
+<div class="bg-cover bg-center bg-no-repeat h-screen bg-white flex justify-center items-center">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+    <div class="transform transition-transform duration-300 hover:scale-105 hover:z-10">
+      <a href="main.html">
+        <img src="./adoptdog.jpg" alt="Description Image 1" class="w-full h-auto rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mt-4 mb-2 text-white">Be a Hero: Donate to Save Our Furry Friends</h2>
+        <p class="text-lg leading-relaxed text-gray-900">
+          Open your heart and home! By adopting a pet or donating, you transform lives. Join us in giving love and second chances to furry friends waiting for their forever families.
+        </p>
+      </a>
+    </div>
+    <div class="transform transition-transform duration-300 hover:scale-105 hover:z-10">
+      <a href="ngo.html">
+        <img src="./saveplant.jpg" alt="Description Image 2" class="w-full h-auto rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mt-4 mb-2 text-white">Give Hope: Support Our Animal Rescue Mission</h2>
+        <p class="text-lg leading-relaxed text-gray-900">
+          Join us in giving a voice to the voiceless. Your generous donations help rescue, rehabilitate, and rehome pets in need, creating a brighter future for our furry friends.
+        </p>
+      </a>
+    </div>
+    <div class="transform transition-transform duration-300 hover:scale-105 hover:z-10">
+      <a href="product.html">
+        <img src="./petfood.jpg" alt="Description Image 3" class="w-full h-auto rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mt-4 mb-2 text-white">Products for Happy Pets</h2>
+        <p class="text-lg leading-relaxed text-gray-900">
+          Explore our curated collection of pet essentials! From cozy beds to tasty treats, every item is designed to keep your furry friends happy, healthy, and tail-waggingly joyful.
+        </p>
+      </a>
+    </div>
   </div>
-  <div class="w-full md:w-1/2 lg:w-1/3 p-4 transform transition-transform duration-300 hover:scale-105 hover:z-10">
-    <a href="ngo.html">
-      <img src="./saveplant.jpg" alt="Description Image 2" class="w-full h-auto rounded-lg shadow-lg">
-      <h2 class="text-3xl font-bold mt-4 mb-2 text-black">Give Hope: Support Our Animal Rescue Mission</h2>
-      <p class="text-lg leading-relaxed text-gray-800">
-        Join us in giving a voice to the voiceless. Your generous donations help rescue, rehabilitate, and rehome pets in need, creating a brighter future for our furry friends.</p>
-    </a>
-  </div>
-  <div class="w-full md:w-1/2 lg:w-1/3 p-4 transform transition-transform duration-300 hover:scale-105 hover:z-10">
-    <a href="product.html">
-      <img src="./petfood.jpg" alt="Description Image 3" class="w-full h-auto rounded-lg shadow-lg">
-      <h2 class="text-3xl font-bold mt-4 mb-2 text-black">Products for Happy Pets</h2>
-      <p class="text-lg leading-relaxed text-gray-800">Explore our curated collection of pet essentials! From cozy beds to tasty treats, every item is designed to keep your furry friends happy, healthy, and tail-waggingly joyful.</p>
-    </a>
-  </div>
-</section>
+</div>
 <!--Cta Section-->
 
 <!-- //page number 3 -->
@@ -163,18 +190,19 @@
   <div class="bg-cover bg-center bg-no-repeat h-screen relative ">
     <sectiion class="flex w-full h-full">
       <div class=" w-1/2 h-full flex items-center justify-center bg-white">
-        <div class="flex gap-5 bg-slate-800 p-10 rounded-lg">
+        <div class="flex gap-5 bg-slate-800 p-10 rounded-lg ">
           <div class="flex flex-col gap-4 p-24">
-            <div class="flex gap-4">
-              <input type="text" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Name">
-              <input type="email" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Email">
+            <div class="flex gap-4 ">
+              <input type="text" class="transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Name">
+              <input type="email" class="transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Email">
             </div>
             <div class="flex gap-4">
-              <input type="date" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Date">
-                <input type="text" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Duplicate">
+              <input type="date" class="transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Date">
+                <input type="text" class="transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Duplicate">
               </div>
               <div class="flex gap-4">
-                <input type="text" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Additional Info">
+                <input type="text" class="transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Additional Info">
+                <input type="text" class=" transform transition-transform duration-300 hover:scale-105 hover:z-10 p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Mobile No.">
               </div>
               <div class="flex gap-4">
                 <button class="text-white font-bold py-2 px-6 rounded bg-gradient-to-t from-red-600 to-red-900 shadow-2xl active:shadow-none">Book Now</button>
@@ -204,7 +232,7 @@
                   <h2 class="text-4xl font-bold mb-4">Insert Image</h2>
                   <input type="file" id="image-input" class="p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600" accept="image/*">
                   <div class="mt-4">
-                    <img id="preview-image" class="max-w-full h-auto rounded-lg shadow-lg" alt="Image Preview">
+                    <img id="preview-image" class="max-w-full h-44 rounded-lg shadow-lg" alt="Image Preview">
                   </div>
                   <div class="mt-4">
                     <button id="send-button" class="text-white font-bold py-2 px-6 rounded bg-gradient-to-t from-green-400 to-blue-500 shadow-lg active:shadow-none mr-2">Send</button>
@@ -298,10 +326,17 @@
   </div>
  <!--end 1 -->
 
-   <!--testimonials-photo-injuried animals -->
-  <section class="section-gallery mt-8 bg-white p-4 " style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" id="gallery">
+ <!--testimonials-photo-injuried animals -->
+ <section >
+  <div class="subheading" style="text-align: center; font-size: 3rem; font-weight: bold; text-transform: uppercase;">we care</div>
+
+  <h2 class="heading-secondary text-pink-950" style="text-align: center; 
+  font-size: 1rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; text-transform: uppercase; transform: uppercase;">your emotions...</h2>
+
+   <section class="section-gallery mt-[3rem] bg-white p-4 h-auto " style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" id="gallery">
+     
     <div class="gallery-item transform transition-transform duration-500 hover:scale-105 p-2  ">
-      <img src="1.jpg" alt="photo of beautifully arranged food" class="w-full h-auto rounded-lg shadow-lg" />
+      <img src="1.jpg" alt="photo of beautifully arranged food" class="w-full  rounded-lg shadow-lg h-56 " />
     </div>
     <div class="gallery-item transform transition-transform duration-500 hover:scale-105 p-2">
       <img src="2.jpg" alt="photo of beautifully arranged food" class="w-full h-auto rounded-lg shadow-lg" />
@@ -324,11 +359,13 @@
     <div class="gallery-item transform transition-transform duration-500 hover:scale-105 p-2">
       <img src="8.jpg" alt="photo of beautifully arranged food" class="w-full h-auto rounded-lg shadow-lg" />
     </div>
-    <div class="gallery-item transform transition-transform duration-500 hover:scale-105 p-2"></div>
+    <div class="gallery-item transform transition-transform duration-500 hover:scale-105 p-2">
       <img src="9.jpg" alt="photo of beautifully arranged food" class="w-full h-auto rounded-lg shadow-lg" />
     </div>
   </section>
 
+
+</section>
 
    <!--end-2 -->
 </section>
